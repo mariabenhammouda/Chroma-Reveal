@@ -6,7 +6,7 @@ void ofApp::setup(){
    
     kinect.init();
     kinect.open(); // initialize kinect & webcam
-    webcam.setup(640,480);
+    webcam.setup(ofGetWidth(),ofGetHeight());
     contour.setMinAreaRadius(30); // the min and max parameters for the kinect contours
     contour.setMaxAreaRadius(130);
         ofSetLogLevel(OF_LOG_NOTICE);
@@ -25,7 +25,8 @@ void ofApp::setup(){
 void ofApp::update(){
     webcam.update();
     kinect.update();
-    color=webcam.getPixels().getColor(320, 240);// get the color of the pixel at the webcam center
+
+   // color=webcam.getPixels().getColor(320, 240);// get the color of the pixel at the webcam center
     if (kinect.isFrameNew()){ // if there is a change in the frame of kinect, set a new contour
         contour.setTargetColor(color);
         contour.setThreshold(60);
@@ -42,12 +43,14 @@ void ofApp::draw(){
     ofSetColor(255);
     ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight()); // create a rectangle as background to conver the webcam and kinect
     
-    ofSetColor(color); // assign the brush the color of the pixel
+     // assign the brush the color of the pixel
         //code for generative brush here
     this->addPoint();
         for (auto& point : linepoints) {
          //   col.setHsb(color1, 100, 100);
            // ofSetColor(col);
+            color=webcam.getPixels().getColor(point->x, point->y);
+            ofSetColor(color);
             ofDrawCircle(point->x, point->y, 10);
         }
     ofSetColor(255);
