@@ -79,8 +79,6 @@ void ofApp::keyPressed(int key){
             img.save("myArtwork.jpg");
             printf("S2\n");
         screenshot=true; // assign screenshot bool to true
-      
-       
         }
    
 }
