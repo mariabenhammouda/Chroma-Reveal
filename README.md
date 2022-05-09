@@ -13,6 +13,7 @@
 Initially, the idea of the project was to utilize the webcamera as a color palette so that the user can use the mouse to select a color for the paint brush. Later, we developed the idea of using the function ofgetpixel to get the color of the pixel manually through code. The selected pixel at this stage was the center pixel of the webcamera. Finally, we decided that the reflecting the webcamera through a whitebackground.
 
 ## Code Snippits and screen shots
+![myArtwork](https://user-images.githubusercontent.com/102983688/167426014-936103a0-c8ff-446d-8c4b-858d91c4cf1a.jpg)
 
 ## Presonal Evaluation
 ### Fatema
