@@ -9,8 +9,8 @@
 ### story
 - the story lies in the stages of getting to the revealed image. Initially, the webcamera is displayed, that is the first stage. The more you utilize the brush to create strokes the further you develop you artwork and the more you reveal the webcamera.
 
-### Parts
 ## Process
+Initially, the idea of the project was to utilize the webcamera as a color palette so that the user can use the mouse to select a color for the paint brush. Later, we developed the idea of using the function ofgetpixel to get the color of the pixel manually through code. The selected pixel at this stage was the center pixel of the webcamera. 
 
 ## Code Snippits and screen shots
 
