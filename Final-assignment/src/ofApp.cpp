@@ -4,11 +4,7 @@
 void ofApp::setup() {
     font.load("Rajdhani-SemiBold.ttf", 32);
     ofSetBackgroundColor(0, 0, 0); // create a rectangle as background to conver the webcam and kinect
-    kinect.init();
-    kinect.open(); // initialize kinect & webcam
     webcam.setup(ofGetWidth(), ofGetHeight());
-    contour.setMinAreaRadius(30); // the min and max parameters for the kinect contours
-    contour.setMaxAreaRadius(130);
     ofSetLogLevel(OF_LOG_NOTICE);
     brushLoc = ofVec2f(ofGetWidth() / 2, ofGetHeight() / 2);
 
@@ -21,22 +17,15 @@ void ofApp::setup() {
 //--------------------------------------------------------------
 void ofApp::update() {
     webcam.update();
-    kinect.update();
 
-    // color=webcam.getPixels().getColor(320, 240);// get the color of the pixel at the webcam center
-    if (kinect.isFrameNew()) { // if there is a change in the frame of kinect, set a new contour
-        contour.setTargetColor(color);
-        contour.setThreshold(60);
-        contour.findContours(kinect);
-    }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
 
-    kinect.draw(0, 0); // draw contour, kinect and webcam
+  //  kinect.draw(0, 0); // draw contour, kinect and webcam
     webcam.draw(0, 0);
-    contour.draw();
+  //  contour.draw();
 
      // assign the brush the color of the pixel
         //code for generative brush here
@@ -53,7 +42,7 @@ void ofApp::draw() {
     }
     else if(draww) {
         ofSetColor(225);
-        ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight()); // create a rectangle as background to conver the webcam and kinect
+        ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight()); // create a rectangle as background to conver the webcam and
         this->addPoint();
         for (auto& point : linepoints) {
             //   col.setHsb(color1, 100, 100);
@@ -99,7 +88,7 @@ void ofApp::addLine(float x, float y, int r, int num) {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-    kinect.setCameraTiltAngle(0);
+  //  kinect.setCameraTiltAngle(0);
     if (key == 's'||key=='S') { // if key s is pressed, save the screen under name "myArtwork.jpg"
 
         printf("S\n");
@@ -164,8 +153,8 @@ void ofApp::dragEvent(ofDragInfo dragInfo) {
 
 }
 void ofApp::exit() {
-    kinect.close();
-    kinect.setCameraTiltAngle(0);
+  //  kinect.close();
+   // kinect.setCameraTiltAngle(0);
     webcam.close();
 
     // upo closing the program, close kinect and webcam
